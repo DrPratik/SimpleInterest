@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText prin,rat,tim;
-    Button cal;
+    Button cal,cle;
     int pr,time;
     double rate;
     double ans;
@@ -27,6 +27,19 @@ public class MainActivity extends AppCompatActivity {
         tim=findViewById(R.id.timeyr);
         cal=findViewById(R.id.button);
         ans1=findViewById(R.id.ans);
+        cle=findViewById(R.id.clearbtn);
+        cle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prin.setText("");
+                prin.setHint("Principal value");
+                rat.setText("");
+                rat.setHint("Rate");
+                tim.setText("");
+                tim.setHint("Time(months)");
+                ans1.setText("");
+            }
+        });
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,17 +48,19 @@ public class MainActivity extends AppCompatActivity {
                     rate = Float.parseFloat(rat.getText().toString());
                     time = Integer.parseInt(tim.getText().toString());
                     ans = (pr * rate * time) / 100;
-                    ans1.setText(String.valueOf(ans));
+                    ans1.setText("Simple Interest: "+String.valueOf(ans));
                     AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
                     builder.setCancelable(true);
                     builder.setMessage(String.valueOf(ans));
                     builder.show();
+
 
                 }
                 else
                 {
                     Toast.makeText(MainActivity.this,"Please enter all values",Toast.LENGTH_SHORT).show();
                 }
+
                 }
         });
     }
