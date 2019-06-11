@@ -1,6 +1,7 @@
 package com.example.simpleinterest;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
                     time = Integer.parseInt(tim.getText().toString());
                     ans = (pr * rate * time) / 100;
                     ans1.setText(String.valueOf(ans));
+                    AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                    builder.setCancelable(true);
+                    builder.setMessage(String.valueOf(ans));
+                    builder.show();
+
                 }
                 else
                 {

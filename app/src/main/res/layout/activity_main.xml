@@ -30,7 +30,7 @@
         android:layout_marginTop="322dp"
         android:ems="10"
         android:hint="Rate"
-        android:inputType="numberDecimal" />
+        android:inputType="number|numberDecimal" />
 
     <EditText
         android:id="@+id/timeyr"
